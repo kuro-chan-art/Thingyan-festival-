@@ -441,6 +441,59 @@ body::before {
     }
 }
 
-.right img{
+/* ================= DONATE PAGE ================= */
+
+.donate-img {
     width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    object-fit: cover;
 }
+
+/* LINKS */
+.left a, .right a {
+    color: #00bfff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.left a:hover, .right a:hover {
+    text-decoration: underline;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+    .donate-img {
+        max-width: 100%;
+        margin: 15px 0;
+    }
+
+    .left p, .right p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .arrow-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+    .left h1, .right h1 {
+        font-size: 22px;
+    }
+
+    .left p, .right p {
+        font-size: 13px;
+    }
+}
+
