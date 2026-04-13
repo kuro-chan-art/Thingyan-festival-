@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+
+    position: relative;
+    animation: zoomBg 20s ease-in-out infinite alternate;
+}
+@keyframes zoomBg {
+    0% { background-size: 100%; }
+    100% { background-size: 110%; }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.4); /* dark overlay */
+    z-index: -1;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #00ffff;
+}
+
+/* LOGO */
+.logo {
+    color: #00ffff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* MENU */
+.menu a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* HOVER EFFECT */
+.menu a:hover {
+    color: #00ffff;
+}
+
+/* ACTIVE PAGE */
+.menu a.active {
+    color: #00ffff;
+}
+
+/* UNDERLINE ANIMATION */
+.menu a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #00ffff;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+/* SPLIT SCREEN */
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.left, .right {
+    width: 50%;
+    padding: 60px 40px;
+    overflow-y: auto;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* LEFT */
+.left {
+    background: rgba(255,255,255,0.85);
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+/* RIGHT */
+.right {
+    background: rgba(255,255,255,0.65);
+    font-family: "Noto Sans Myanmar", sans-serif;
+}
+
+/* BUTTON */
+.next-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #00bfff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* WATER ANIMATION BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: url('https://i.ibb.co/3rZz0dH/water-texture.png');
+    animation: waterMove 20s linear infinite;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+@keyframes waterMove {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* PAGE FADE */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* SPLASH DROP */
+.splash {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #00bfff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: splashAnim 0.6s ease-out forwards;
+}
+
+@keyframes splashAnim {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(8);
+        opacity: 0;
+    }
+}
+
+/* NAVBAR UPGRADE */
+
+/* CIRCLE NEXT BUTTON */
+.next-circle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #00bfff;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.next-circle:hover {
+    transform: scale(1.2);
+    background: #00ffff;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+    box-sizing: border-box;
+
+    background: rgba(0, 30, 60, 0.95); /* solid clean */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    z-index: 9999;
+
+    /* IMPORTANT FIX */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* PREVIOUS BUTTON */
+.prev-circle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+
+    width: 60px;
+    height: 60px;
+
+    background: linear-gradient(135deg, #00bfff, #00ffff);
+    color: white;
+
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    text-decoration: none;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.prev-circle:hover {
+    transform: scale(1.2);
+}
+
+/* MULTI LAYER RIPPLE */
+.ripple {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0.6;
+}
+
+/* Each layer */
+.ripple.layer1 {
+    border: 3px solid rgba(0, 200, 255, 0.6);
+    animation: rippleWave 0.8s ease-out forwards;
+}
+
+.ripple.layer2 {
+    border: 2px solid rgba(0, 180, 255, 0.4);
+    animation: rippleWave 1s ease-out forwards;
+}
+
+.ripple.layer3 {
+    border: 1px solid rgba(0, 150, 255, 0.3);
+    animation: rippleWave 1.2s ease-out forwards;
+}
+
+/* WAVE EXPANSION */
+@keyframes rippleWave {
+    0% {
+        transform: scale(0.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(6);
+        opacity: 0;
+    }
+}
+
+/* WAVE CONTAINER */
+.wave-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* WAVES */
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: url('https://i.ibb.co/wQZVxxk/wave.png') repeat-x;
+    background-size: contain;
+    opacity: 0.6;
+}
+
+/* DIFFERENT LAYERS */
+.wave1 {
+    animation: waveMove 10s linear infinite;
+    bottom: 0;
+}
+
+.wave2 {
+    animation: waveMoveReverse 15s linear infinite;
+    bottom: 10px;
+    opacity: 0.4;
+}
+
+.wave3 {
+    animation: waveMove 20s linear infinite;
+    bottom: 20px;
+    opacity: 0.3;
+}
+
+/* ANIMATION */
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes waveMoveReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+.wave {
+    filter: blur(1px);
+}
+
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .container {
+        padding-top: 90px;
+    }
+
+    .left, .right {
+        padding: 40px 25px;
+    }
+
+    .navbar {
+        padding: 0 20px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    /* STACK SECTIONS */
+    .container {
+        flex-direction: column;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    /* NAVBAR FIX */
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu a {
+        margin: 5px;
+        font-size: 14px;
+    }
+
+    /* BUTTONS */
+    .next-circle, .prev-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        bottom: 20px;
+    }
+
+    .next-circle {
+        right: 15px;
+    }
+
+    .prev-circle {
+        left: 15px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .left, .right {
+        padding: 18px 12px;
+    }
+}
