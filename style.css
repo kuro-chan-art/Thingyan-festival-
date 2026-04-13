@@ -440,3 +440,7 @@ body::before {
         padding: 18px 12px;
     }
 }
+
+.right img{
+    width: 100%;
+}
